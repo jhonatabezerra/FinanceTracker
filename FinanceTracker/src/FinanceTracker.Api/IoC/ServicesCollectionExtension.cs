@@ -1,7 +1,6 @@
 ﻿using FinanceTracker.Api.Exceptions;
-using FinanceTracker.Infrastructure.Data;
+using FinanceTracker.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Options;
 
 namespace FinanceTracker.Api.IoC
 {
@@ -49,7 +48,7 @@ namespace FinanceTracker.Api.IoC
 
             services.AddDbContext<AppDbContext>(options =>
             {
-                options.UseSqlite(connectionString);
+                //options.UseSqlite(connectionString);
 
                 //options.UseSqlServer(connectionString, opt => opt.MigrationsAssembly("DataAccess.EFCore"));
 
