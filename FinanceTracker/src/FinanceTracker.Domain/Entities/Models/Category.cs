@@ -1,7 +1,7 @@
 ﻿namespace FinanceTracker.Domain.Entities.Models;
 
 /// <summary>
-/// 
+/// Represents a category used to classify transactions.
 /// </summary>
 public class Category : EntityBase
 {
@@ -13,5 +13,5 @@ public class Category : EntityBase
     /// <summary>
     /// Gets or sets the description of the category.
     /// </summary>
-    public string Description { get; set; } = string.Empty;
+    public string? Description { get; set; } = null;
 }

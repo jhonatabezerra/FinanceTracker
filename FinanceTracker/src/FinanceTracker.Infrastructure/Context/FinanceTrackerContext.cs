@@ -6,7 +6,12 @@ namespace FinanceTracker.Infrastructure.Context;
 /// <summary>
 /// Application database context for FinanceTracker.
 /// </summary>
-public class AppDbContext : DbContext
+/// <remarks>
+/// Initializes a new instance of the AppDbContext class using the specified options.
+/// </remarks>
+/// <param name="options">The options to be used by the DbContext, including configuration such as the database provider, connection
+/// string, and other context settings. Cannot be null.</param>
+public class FinanceTrackerContext(DbContextOptions<FinanceTrackerContext> options) : DbContext(options)
 {
     /// <summary>
     /// Gets the database set that provides access to user entities in the context.
@@ -28,10 +33,10 @@ public class AppDbContext : DbContext
     /// called.</remarks>
     public DbSet<Transaction> Transactions => Set<Transaction>();
 
-    /// <summary>
-    /// Initializes a new instance of the AppDbContext class using the specified options.
-    /// </summary>
-    /// <param name="options">The options to be used by the DbContext, including configuration such as the database provider, connection
-    /// string, and other context settings. Cannot be null.</param>
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(FinanceTrackerContext).Assembly);
+    }
 }

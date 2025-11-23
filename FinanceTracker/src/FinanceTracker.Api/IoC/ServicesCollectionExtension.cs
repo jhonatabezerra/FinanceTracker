@@ -46,7 +46,7 @@ namespace FinanceTracker.Api.IoC
 
             bool isDevelopment = environment == "Development";
 
-            services.AddDbContext<AppDbContext>(options =>
+            services.AddDbContext<FinanceTrackerContext>(options =>
             {
                 //options.UseSqlite(connectionString);
 
@@ -54,11 +54,13 @@ namespace FinanceTracker.Api.IoC
 
                 //if (isDevelopment)
                 //    options.EnableSensitiveDataLogging();
+
+                options.UseNpgsql(builder.Configuration.GetConnectionString("FinanceTrackerDb"));
             });
 
-            
+
 
             return services;
         }
-}
+    }
 }
