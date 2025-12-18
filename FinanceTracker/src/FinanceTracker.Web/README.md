@@ -46,3 +46,4 @@ O aplicativo estará disponível em `http://localhost:4200`
 - RxJS para programação reativa
 - TypeScript
 
+

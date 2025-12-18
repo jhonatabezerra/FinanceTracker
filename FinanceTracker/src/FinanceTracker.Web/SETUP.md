@@ -74,3 +74,4 @@ O frontend espera os seguintes endpoints no backend:
 3. O endpoint de gerenciamento de usuários deve verificar se o usuário é administrador
 4. As datas devem ser enviadas no formato ISO (YYYY-MM-DD)
 
+
